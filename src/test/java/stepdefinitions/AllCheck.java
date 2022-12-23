@@ -410,8 +410,8 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
         mapLeoOutline.put(listLeoCourseName,listLeoOutline);
         System.out.println("mapLeoOutline = " + mapLeoOutline);
     }
-    @Then("user checks ınfo StatusCheck at CRM with ınfo StatusCheck at loe")
-    public void user_checks_ınfo_status_check_at_crm_with_ınfo_status_check_at_loe() {
+    @Then("user checks info StatusCheck at CRM with info StatusCheck at loe")
+    public void user_checks_info_status_check_at_crm_with_info_status_check_at_loe() {
 //statusCheck
         if (listPublish.size() == listLeo.size()) {
             for (String each : listLeo) {
@@ -426,8 +426,8 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
         }
     }
 
-    @Then("user checks ınfo relatedCourses at CRM with ınfo relatedCourses at loe")
-    public void user_checks_ınfo_related_courses_at_crm_with_ınfo_related_courses_at_loe() {
+    @Then("user checks info relatedCourses at CRM with info relatedCourses at loe")
+    public void user_checks_info_related_courses_at_crm_with_info_related_courses_at_loe() {
 //relatedCourses
         for (Map.Entry<List<String>, List<String>> each1 : mapCRMRelatedCourses.entrySet()) {
             for (Map.Entry<List<String>, List<String>> each2 : mapLeoRelatedCourses.entrySet()) {
@@ -440,8 +440,8 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
         }
     }
 
-    @Then("user checks ınfo PM at CRM with ınfo PM at loe")
-    public void user_checks_ınfo_pm_at_crm_with_ınfo_pm_at_loe() {
+    @Then("user checks info PM at CRM with info PM at loe")
+    public void user_checks_info_pm_at_crm_with_info_pm_at_loe() {
         //PMCheck
         for (Map.Entry<List<String>, List<String>> each1 : mapCRMPM.entrySet()) {
             for (Map.Entry<List<String>, List<String>> each2 : mapLeoPM.entrySet()) {
@@ -454,8 +454,8 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
         }
     }
 
-    @Then("user checks ınfo price at CRM with ınfo price at loe")
-    public void user_checks_ınfo_price_at_crm_with_ınfo_price_at_loe() {
+    @Then("user checks info price at CRM with info price at loe")
+    public void user_checks_info_price_at_crm_with_info_price_at_loe() {
         //PriceCheck
         List<String> price1 = new ArrayList<>();
         for (int i = 0; i < listCRMPrice.size(); i++) {
@@ -480,8 +480,8 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
         }
     }
 
-    @Then("user checks ınfo academyName at CRM with ınfo academyName at loe")
-    public void user_checks_ınfo_academy_name_at_crm_with_ınfo_academy_name_at_loe() {
+    @Then("user checks info academyName at CRM with info academyName at loe")
+    public void user_checks_info_academy_name_at_crm_with_info_academy_name_at_loe() {
         //academyNameCheck
         for (Map.Entry<List<String>, List<String>> each1 : mapCRMAcademyName.entrySet()) {
             for (Map.Entry<List<String>, List<String>> each2 : mapLeoAcademyName.entrySet()) {
@@ -495,8 +495,8 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
         }
     }
 
-    @Then("user checks ınfo overview at CRM with ınfo overview at loe")
-    public void user_checks_ınfo_overview_at_crm_with_ınfo_overview_at_loe() {
+    @Then("user checks info overview at CRM with info overview at loe")
+    public void user_checks_info_overview_at_crm_with_info_overview_at_loe() {
         //overviewCheck
         for (Map.Entry<List<String>, List<String>> each1 : mapCRMOverview.entrySet()) {
             for (Map.Entry<List<String>, List<String>> each2 : mapLeoOverview.entrySet()) {
@@ -510,8 +510,8 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
         }
     }
 
-    @Then("user checks ınfo keyTakeAway at CRM with ınfo keyTakeAway at loe")
-    public void user_checks_ınfo_key_take_away_at_crm_with_ınfo_key_take_away_at_loe() {
+    @Then("user checks info keyTakeAway at CRM with info keyTakeAway at loe")
+    public void user_checks_info_key_take_away_at_crm_with_info_key_take_away_at_loe() {
         //keyTakeAwayCheck
         for (Map.Entry<List<String>, List<String>> each1 : mapCRMKeyTakeAway.entrySet()) {
             for (Map.Entry<List<String>, List<String>> each2 : mapLeoKeyTakeAway.entrySet()) {
@@ -525,8 +525,8 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
         }
     }
 
-    @Then("user checks ınfo courseOutline at CRM with ınfo courseOutline at loe")
-    public void user_checks_ınfo_course_outline_at_crm_with_ınfo_course_outline_at_loe() {
+    @Then("user checks info courseOutline at CRM with info courseOutline at loe")
+    public void user_checks_info_course_outline_at_crm_with_info_course_outline_at_loe() {
         //outlineCheck
         for (Map.Entry<List<String>, List<String>> each1 : mapCRMOutline.entrySet()) {
             for (Map.Entry<List<String>, List<String>> each2 : mapLeoOutline.entrySet()) {

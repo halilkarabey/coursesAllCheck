@@ -16,26 +16,26 @@ Feature: Checked
     And user clicks courses at leo
     And user scrolls down
     And user lists all courses academyName, keyTakeAway,overview,PM,price,relatedCourses, statusCheck,courseOutline at leo
-    Then user checks ınfo StatusCheck at CRM with ınfo StatusCheck at loe
+    Then user checks info StatusCheck at CRM with info StatusCheck at loe
 
   Scenario: User should be able to see relatedCourses
-    Then user checks ınfo relatedCourses at CRM with ınfo relatedCourses at loe
+    Then user checks info relatedCourses at CRM with info relatedCourses at loe
 
   Scenario: User should be able to see PM
-    Then user checks ınfo PM at CRM with ınfo PM at loe
+    Then user checks info PM at CRM with info PM at loe
 
   Scenario: User should be able to see price
-    Then user checks ınfo price at CRM with ınfo price at loe
+    Then user checks info price at CRM with info price at loe
 
   Scenario: User should be able to see academyName
-    Then user checks ınfo academyName at CRM with ınfo academyName at loe
+    Then user checks info academyName at CRM with info academyName at loe
 
   Scenario: User should be able to see overview
-    Then user checks ınfo overview at CRM with ınfo overview at loe
+    Then user checks info overview at CRM with info overview at loe
 
   Scenario: User should be able to see keyTakeAway
-    Then user checks ınfo keyTakeAway at CRM with ınfo keyTakeAway at loe
+    Then user checks info keyTakeAway at CRM with info keyTakeAway at loe
 
   Scenario: User should be able to see courseOutline
-    Then user checks ınfo courseOutline at CRM with ınfo courseOutline at loe
+    Then user checks info courseOutline at CRM with info courseOutline at loe
 
