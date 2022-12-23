@@ -20,49 +20,49 @@ import java.time.Duration;
 import java.util.*;
 
 public class AllCheck {
-AllPage allPage=new AllPage();
-Random random=new Random();
-WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
+    AllPage allPage = new AllPage();
+    Random random = new Random();
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
     List<String> listPublish = new ArrayList<>();
     List<String> listLeo = new ArrayList<>();
-    List<String>listCrmCourseName=new ArrayList<>();
-    List<String>listCrmRelatedCourses=new ArrayList<>();
-    Map<List<String>,List<String>>mapCRMRelatedCourses=new HashMap<>();
-    List<String>listLeoRelatedCourses=new ArrayList<>();
-    List<String>listLeoCourseName=new ArrayList<>();
-    Map<List<String>,List<String>>mapLeoRelatedCourses=new HashMap<>();
-    List<String>listCRMPM=new ArrayList<>();
-    Map<List<String>,List<String>>mapCRMPM=new HashMap<>();
-    List<String>listLeoPM=new ArrayList<>();
-    Map<List<String>,List<String>>mapLeoPM=new HashMap<>();
-    List<String>listCRMPrice=new ArrayList<>();
-    Map<List<String>,List<String>>mapCRMPrice=new HashMap<>();
-    List<String>listLeoPrice=new ArrayList<>();
-    Map<List<String>,List<String>>mapLeoPrice=new HashMap<>();
-    List<String>listCRMAcademyName=new ArrayList<>();
-    Map<List<String>,List<String>>mapCRMAcademyName=new HashMap<>();
-    List<String>listLeoAcademyName=new ArrayList<>();
-    Map<List<String>,List<String>>mapLeoAcademyName=new HashMap<>();
-    Map<List<String>,List<String>>mapAcademyNameAtLeo2=new HashMap<>();
-    Map<List<String>,List<String>>mapAcademyNameAtLeo1=new HashMap<>();
-    List<String>listCRMOverview=new ArrayList<>();
-    Map<List<String>,List<String>>mapCRMOverview=new HashMap<>();
-    List<String>listLeoOverview=new ArrayList<>();
-    Map<List<String>,List<String>>mapLeoOverview=new HashMap<>();
-    List<String>listCRMKeyTakeAway=new ArrayList<>();
-    Map<List<String>,List<String>>mapCRMKeyTakeAway=new HashMap<>();
-    List<String>listLeoKeyTakeAway=new ArrayList<>();
-    List<String>listLeoKeyTakeAway1=new ArrayList<>();
-    Map<List<String>,List<String>>mapLeoKeyTakeAway=new HashMap<>();
-    List<String>listCRMOutline=new ArrayList<>();
-    Map<List<String>,List<String>>mapCRMOutline=new HashMap<>();
-    List<String>listLeoOutline=new ArrayList<>();
-    Map<List<String>,List<String>>mapLeoOutline=new HashMap<>();
+    List<String> listCrmCourseName = new ArrayList<>();
+    List<String> listCrmRelatedCourses = new ArrayList<>();
+    Map<List<String>, List<String>> mapCRMRelatedCourses = new HashMap<>();
+    List<String> listLeoRelatedCourses = new ArrayList<>();
+    List<String> listLeoCourseName = new ArrayList<>();
+    Map<List<String>, List<String>> mapLeoRelatedCourses = new HashMap<>();
+    List<String> listCRMPM = new ArrayList<>();
+    Map<List<String>, List<String>> mapCRMPM = new HashMap<>();
+    List<String> listLeoPM = new ArrayList<>();
+    Map<List<String>, List<String>> mapLeoPM = new HashMap<>();
+    List<String> listCRMPrice = new ArrayList<>();
+    Map<List<String>, List<String>> mapCRMPrice = new HashMap<>();
+    List<String> listLeoPrice = new ArrayList<>();
+    Map<List<String>, List<String>> mapLeoPrice = new HashMap<>();
+    List<String> listCRMAcademyName = new ArrayList<>();
+    Map<List<String>, List<String>> mapCRMAcademyName = new HashMap<>();
+    List<String> listLeoAcademyName = new ArrayList<>();
+    Map<List<String>, List<String>> mapLeoAcademyName = new HashMap<>();
+    Map<List<String>, List<String>> mapAcademyNameAtLeo2 = new HashMap<>();
+    Map<List<String>, List<String>> mapAcademyNameAtLeo1 = new HashMap<>();
+    List<String> listCRMOverview = new ArrayList<>();
+    Map<List<String>, List<String>> mapCRMOverview = new HashMap<>();
+    List<String> listLeoOverview = new ArrayList<>();
+    Map<List<String>, List<String>> mapLeoOverview = new HashMap<>();
+    List<String> listCRMKeyTakeAway = new ArrayList<>();
+    Map<List<String>, List<String>> mapCRMKeyTakeAway = new HashMap<>();
+    List<String> listLeoKeyTakeAway = new ArrayList<>();
+    List<String> listLeoKeyTakeAway1 = new ArrayList<>();
+    Map<List<String>, List<String>> mapLeoKeyTakeAway = new HashMap<>();
+    List<String> listCRMOutline = new ArrayList<>();
+    Map<List<String>, List<String>> mapCRMOutline = new HashMap<>();
+    List<String> listLeoOutline = new ArrayList<>();
+    Map<List<String>, List<String>> mapLeoOutline = new HashMap<>();
 
 
     @Given("User goes to {string} for crm")
     public void user_goes_to_for_crm(String crmEnv) {
-            Driver.getDriver().get(ConfigReader.getProperty(crmEnv));
+        Driver.getDriver().get(ConfigReader.getProperty(crmEnv));
     }
 
     @And("user enters {string} in emailBox")
@@ -99,16 +99,16 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
     public void user_clicks_load_more_until_it_is_un_clickable() throws InterruptedException {
         boolean flag = true;
 
-        while (flag){
+        while (flag) {
 
-            int size1=allPage.checked().coursesSize.size();
+            int size1 = allPage.checked().coursesSize.size();
             JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
             js.executeScript("window.scrollBy(0,500)", "");
             allPage.checked().loadMoreButton.click();
             Thread.sleep(2000);
-            int size2=allPage.checked().coursesSize.size();
-            if (size1==size2){
-                flag=false;
+            int size2 = allPage.checked().coursesSize.size();
+            if (size1 == size2) {
+                flag = false;
             }
         }
     }
@@ -128,28 +128,28 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
             Thread.sleep(2000);
 //relatedCoursesCheck
             listCrmCourseName.add(allPage.checked().nameOfCourse.getText());
-            for (int j = 0; j <allPage.checked().relatedCoursesAtCrm.size() ; j++) {
+            for (int j = 0; j < allPage.checked().relatedCoursesAtCrm.size(); j++) {
                 listCrmRelatedCourses.add(allPage.checked().relatedCoursesAtCrm.get(j).getText());
             }
 //PM Check
-            listCRMPM.addAll(Arrays.asList(allPage.checked().pmName.getText(),allPage.checked().pmEmail.getText(),allPage.checked().pmPhone.getText()));
+            listCRMPM.addAll(Arrays.asList(allPage.checked().pmName.getText(), allPage.checked().pmEmail.getText(), allPage.checked().pmPhone.getText()));
 //PriceCheck
-            List<String> lvtText1 =new ArrayList<>();
+            List<String> lvtText1 = new ArrayList<>();
             try {
                 if (allPage.checked().viewAll.isDisplayed()) {
                     wait.until(ExpectedConditions.elementToBeClickable(allPage.checked().viewAll));
                     allPage.checked().viewAll.click();
                     Thread.sleep(1000);
                     for (int y = 0; y < allPage.checked().cellValue.size(); y++) {
-                            lvtText1.add(allPage.checked().cellValue.get(y).getText());
-                            Thread.sleep(1000);
+                        lvtText1.add(allPage.checked().cellValue.get(y).getText());
+                        Thread.sleep(1000);
 
                     }
                     Driver.getDriver().navigate().back();
                     wait.until(ExpectedConditions.elementToBeClickable(allPage.checked().viewAll));
-                } else if (!allPage.checked().viewAll.isDisplayed()&&allPage.checked().sessionLvtPublic.isEnabled()) {
+                } else if (!allPage.checked().viewAll.isDisplayed() && allPage.checked().sessionLvtPublic.isEnabled()) {
                     listCRMPrice.add(allPage.checked().lvtPrice.getText());
-                } else if (!allPage.checked().viewAll.isDisplayed()&&allPage.checked().sessionPublic.isEnabled()) {
+                } else if (!allPage.checked().viewAll.isDisplayed() && allPage.checked().sessionPublic.isEnabled()) {
                     listCRMPrice.add(allPage.checked().face2FacePrice.getText());
 
                 } else {
@@ -159,21 +159,20 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
 
             }
             try {
-                if (lvtText1.contains("LVT Public")&&!lvtText1.contains("Public")){
+                if (lvtText1.contains("LVT Public") && !lvtText1.contains("Public")) {
                     listCRMPrice.add(allPage.checked().lvtPrice.getText());
-                }
-                else if (!lvtText1.contains("LVT Public")&&lvtText1.contains("Public")){
+                } else if (!lvtText1.contains("LVT Public") && lvtText1.contains("Public")) {
                     listCRMPrice.add(allPage.checked().face2FacePrice.getText());
-                }
-                else if (lvtText1.contains("LVT Public")&&lvtText1.contains("Public")){
+                } else if (lvtText1.contains("LVT Public") && lvtText1.contains("Public")) {
                     listCRMPrice.add(allPage.checked().lvtPrice.getText());
                     listCRMPrice.add(allPage.checked().face2FacePrice.getText());
                 }
-            }catch (Exception e){}
+            } catch (Exception e) {
+            }
 //academyNameCheck
             String academyNameAtCrm = allPage.checked().academyNameAtCrm.getText();
             //manipulationOfAcademyName
-            String academyNameAtCrmNew = academyNameAtCrm.split("-")[academyNameAtCrm.split("-").length-1].trim();
+            String academyNameAtCrmNew = academyNameAtCrm.split("-")[academyNameAtCrm.split("-").length - 1].trim();
             listCRMAcademyName.add(academyNameAtCrmNew);
 //overviewCheck
             listCRMOverview.add(allPage.checked().overviewCrm.getText());
@@ -201,29 +200,32 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
 //for loading all courses again
             user_clicks_load_more_until_it_is_un_clickable();
         }
-        mapCRMRelatedCourses.put(listCrmCourseName,listCrmRelatedCourses);
+        mapCRMRelatedCourses.put(listCrmCourseName, listCrmRelatedCourses);
         System.out.println("mapCRMRelatedCourses = " + mapCRMRelatedCourses);
-        mapCRMPM.put(listCrmCourseName,listCRMPM);
+        mapCRMPM.put(listCrmCourseName, listCRMPM);
         System.out.println("mapCRMPM = " + mapCRMPM);
-        mapCRMPrice.put(listCrmCourseName,listCRMPrice);
+        mapCRMPrice.put(listCrmCourseName, listCRMPrice);
         System.out.println("mapCRMPrice = " + mapCRMPrice);
-        mapCRMAcademyName.put(listCrmCourseName,listCRMAcademyName);
+        mapCRMAcademyName.put(listCrmCourseName, listCRMAcademyName);
         System.out.println("mapCRMAcademyName = " + mapCRMAcademyName);
-        mapCRMOverview.put(listCrmCourseName,listCRMOverview);
+        mapCRMOverview.put(listCrmCourseName, listCRMOverview);
         System.out.println("mapCRMOverview = " + mapCRMOverview);
-        mapCRMKeyTakeAway.put(listCrmCourseName,listCRMKeyTakeAway);
+        mapCRMKeyTakeAway.put(listCrmCourseName, listCRMKeyTakeAway);
         System.out.println("mapCRMKeyTakeAway = " + mapCRMKeyTakeAway);
-        mapCRMOutline.put(listCrmCourseName,listCRMOutline);
+        mapCRMOutline.put(listCrmCourseName, listCRMOutline);
         System.out.println("mapCRMOutline = " + mapCRMOutline);
+        System.out.println("-------------------");
     }
 
     @And("user goes to {string} for leo")
     public void user_goes_to_for_leo(String leoEnv) {
-        Driver.getDriver().get(ConfigReader.getProperty(leoEnv));    }
+        Driver.getDriver().get(ConfigReader.getProperty(leoEnv));
+    }
 
     @And("user clicks courses at leo")
     public void user_clicks_courses_at_leo() {
-        allPage.checked().courses.click();    }
+        allPage.checked().courses.click();
+    }
 
     @And("user scrolls down")
     public void user_scrolls_down() {
@@ -251,14 +253,14 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
                     Thread.sleep(2000);
                 }
 //relatedCourseCheck
-            for (int j = 0; j <allPage.checked().relatedCoursesAtLeo.size() ; j++) {
+            for (int j = 0; j < allPage.checked().relatedCoursesAtLeo.size(); j++) {
                 listLeoRelatedCourses.add(allPage.checked().relatedCoursesAtLeo.get(j).getText());
             }
             listLeoCourseName.add(allPage.checked().nameOfCourseAtLeo.getText());
 //PMCheck
             listLeoPM.addAll(Arrays.asList(allPage.checked().pmNameOfMentor.getText(), allPage.checked().pmEmailLeo.getText(), allPage.checked().pmPhoneNumber.getText()));
 //PriceCheck
-    //lvtControlAndAdd
+            //lvtControlAndAdd
             try {
                 if (allPage.checked().live.isDisplayed()) {
                     allPage.checked().live.click();
@@ -268,12 +270,13 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
                     }
                     wait.until(ExpectedConditions.elementToBeClickable(allPage.checked().addToChart));
                     allPage.checked().addToChart.click();
+                    Thread.sleep(1000);
                     listLeoPrice.add(allPage.checked().priceLvtLeo.getText());
                     wait.until(ExpectedConditions.elementToBeClickable(allPage.checked().close));
                     allPage.checked().close.click();
-                    wait.until(ExpectedConditions.elementToBeClickable( allPage.checked().chart));
+                    wait.until(ExpectedConditions.elementToBeClickable(allPage.checked().chart));
                     allPage.checked().chart.click();
-                    wait.until(ExpectedConditions.elementToBeClickable( allPage.checked().delete));
+                    wait.until(ExpectedConditions.elementToBeClickable(allPage.checked().delete));
                     allPage.checked().delete.click();
                     Thread.sleep(1000);
                     Driver.getDriver().navigate().back();
@@ -283,7 +286,7 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
 
             }
 
-    //face2faceControlAndAdd
+            //face2faceControlAndAdd
             try {
                 if (allPage.checked().faceToFace.isDisplayed()) {
                     allPage.checked().faceToFace.click();
@@ -292,10 +295,11 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
                         int size1 = random.nextInt(allPage.checked().amountOfLeoCourses.size() - 1);
                         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", allPage.checked().amountOfLeoCourses.get(size1));
                     }
-                    wait.until(ExpectedConditions.elementToBeClickable( allPage.checked().addToChart));
+                    wait.until(ExpectedConditions.elementToBeClickable(allPage.checked().addToChart));
                     allPage.checked().addToChart.click();
+                    Thread.sleep(1000);
                     listLeoPrice.add(allPage.checked().priceFace2FaceLeo.getText());
-                    wait.until(ExpectedConditions.elementToBeClickable(  allPage.checked().close));
+                    wait.until(ExpectedConditions.elementToBeClickable(allPage.checked().close));
                     allPage.checked().close.click();
                     wait.until(ExpectedConditions.elementToBeClickable(allPage.checked().chart));
                     allPage.checked().chart.click();
@@ -311,46 +315,47 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
 //academyNameCheck
             String academyNameAtLeo = allPage.checked().academyNameAtLeo.getText();
             listLeoAcademyName.add(academyNameAtLeo);
-    //click face to face button and check academyName
+            //click face to face button and check academyName
             try {
                 if (allPage.checked().faceToFace.isDisplayed()) {
                     allPage.checked().faceToFace.click();
                     for (int j = 0; j < allPage.checked().amountOfLeoCourses.size() - 1; j++) {
                         allPage.checked().amountOfLeoCourses.get(j).click();
-                       // mapAcademyNameAtLeo1.put(allPage.checked().nameOfCourseAtLeo.getText(), allPage.checked().academyNameAtLeo.getText());
+                        // mapAcademyNameAtLeo1.put(allPage.checked().nameOfCourseAtLeo.getText(), allPage.checked().academyNameAtLeo.getText());
                         Assert.assertEquals(allPage.checked().academyNameAtCrm.getText(), allPage.checked().academyNameAtLeo.getText());
 
                     }
                 }
-            }catch (Exception e){}
-    //click live button and check academyName
+            } catch (Exception e) {
+            }
+            //click live button and check academyName
             try {
                 if (allPage.checked().live.isDisplayed()) {
                     allPage.checked().live.click();
                     for (int j = 0; j < allPage.checked().amountOfLeoCourses.size() - 1; j++) {
                         allPage.checked().amountOfLeoCourses.get(j).click();
-                       // mapAcademyNameAtLeo2.put(allPage.checked().nameOfCourseAtLeo.getText(), allPage.checked().academyNameAtLeo.getText());
+                        // mapAcademyNameAtLeo2.put(allPage.checked().nameOfCourseAtLeo.getText(), allPage.checked().academyNameAtLeo.getText());
                         Assert.assertEquals(allPage.checked().academyNameAtCrm.getText(), allPage.checked().academyNameAtLeo.getText());
                     }
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
 
             }
 //overviewCheck
             listLeoOverview.add(allPage.checked().overview.getText());
-    //click face to face button and check overview
+            //click face to face button and check overview
             try {
                 if (allPage.checked().faceToFace.isDisplayed()) {
                     allPage.checked().faceToFace.click();
                     String overview = allPage.checked().overview.getText();
-                    for (int j = 0; j < allPage.checked().amountOfLeoCourses.size()-1; j++) {
+                    for (int j = 0; j < allPage.checked().amountOfLeoCourses.size() - 1; j++) {
                         allPage.checked().amountOfLeoCourses.get(j).click();
                         Assert.assertEquals(overview, allPage.checked().overview.getText());
                     }
                 }
+            } catch (Exception e) {
             }
-            catch (Exception e){}
-    //click live button and check overview
+            //click live button and check overview
             try {
                 if (allPage.checked().live.isDisplayed()) {
                     allPage.checked().live.click();
@@ -360,17 +365,17 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
                         Assert.assertEquals(overview1, allPage.checked().overview.getText());
                     }
                 }
+            } catch (Exception e) {
             }
-            catch (Exception e){}
 //keyTakeAwayCheck
             for (int j = 0; j < allPage.checked().listTakeAwayLeo.size(); j++) {
                 listLeoKeyTakeAway.add(allPage.checked().listTakeAwayLeo.get(j).getText());
             }
-    //string manipulation for keyTakeAway
-        for (int x = 0; x < listLeoKeyTakeAway.size(); x++) {
-            String s = listLeoKeyTakeAway.get(x).split("[0-9]")[1].trim();
-            listLeoKeyTakeAway1.add(s);
-        }
+            //string manipulation for keyTakeAway
+            for (int x = 0; x < listLeoKeyTakeAway.size(); x++) {
+                String s = listLeoKeyTakeAway.get(x).split("[0-9]")[1].trim();
+                listLeoKeyTakeAway1.add(s);
+            }
 //courseOutlineCheck
             try {
                 if (allPage.checked().viewMore.isDisplayed()) {
@@ -395,21 +400,23 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
             allPage.checked().courses.click();
             Thread.sleep(1000);
         }
-        mapLeoRelatedCourses.put(listLeoCourseName,listLeoRelatedCourses);
+        mapLeoRelatedCourses.put(listLeoCourseName, listLeoRelatedCourses);
         System.out.println("mapLeoRelatedCourses = " + mapLeoRelatedCourses);
-        mapLeoPM.put(listLeoCourseName,listLeoPM);
+        mapLeoPM.put(listLeoCourseName, listLeoPM);
         System.out.println("mapLeoPM = " + mapLeoPM);
-        mapLeoPrice.put(listLeoCourseName,listLeoPrice);
+        mapLeoPrice.put(listLeoCourseName, listLeoPrice);
         System.out.println("mapLeoPrice = " + mapLeoPrice);
-        mapLeoAcademyName.put(listLeoCourseName,listLeoAcademyName);
+        mapLeoAcademyName.put(listLeoCourseName, listLeoAcademyName);
         System.out.println("mapLeoAcademyName = " + mapLeoAcademyName);
-        mapLeoOverview.put(listLeoCourseName,listLeoOverview);
+        mapLeoOverview.put(listLeoCourseName, listLeoOverview);
         System.out.println("mapLeoOverview = " + mapLeoOverview);
-        mapLeoKeyTakeAway.put(listLeoCourseName,listLeoKeyTakeAway1);
+        mapLeoKeyTakeAway.put(listLeoCourseName, listLeoKeyTakeAway1);
         System.out.println("mapLeoKeyTakeAway = " + mapLeoKeyTakeAway);
-        mapLeoOutline.put(listLeoCourseName,listLeoOutline);
+        mapLeoOutline.put(listLeoCourseName, listLeoOutline);
         System.out.println("mapLeoOutline = " + mapLeoOutline);
+
     }
+
     @Then("user checks info StatusCheck at CRM with info StatusCheck at loe")
     public void user_checks_info_status_check_at_crm_with_info_status_check_at_loe() {
 //statusCheck
@@ -485,10 +492,9 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
         //academyNameCheck
         for (Map.Entry<List<String>, List<String>> each1 : mapCRMAcademyName.entrySet()) {
             for (Map.Entry<List<String>, List<String>> each2 : mapLeoAcademyName.entrySet()) {
-                if (each1.getKey().equals(each2.getKey())){
-                    Assert.assertEquals(each2.getValue(),each1.getValue());
-                }
-                else{
+                if (each1.getKey().equals(each2.getKey())) {
+                    Assert.assertEquals(each2.getValue(), each1.getValue());
+                } else {
                     Assert.fail();
                 }
             }
@@ -500,10 +506,9 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
         //overviewCheck
         for (Map.Entry<List<String>, List<String>> each1 : mapCRMOverview.entrySet()) {
             for (Map.Entry<List<String>, List<String>> each2 : mapLeoOverview.entrySet()) {
-                if (each1.getKey().equals(each2.getKey())){
-                    Assert.assertEquals(each2.getValue(),each1.getValue());
-                }
-                else{
+                if (each1.getKey().equals(each2.getKey())) {
+                    Assert.assertEquals(each2.getValue(), each1.getValue());
+                } else {
                     Assert.fail();
                 }
             }
@@ -515,10 +520,9 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
         //keyTakeAwayCheck
         for (Map.Entry<List<String>, List<String>> each1 : mapCRMKeyTakeAway.entrySet()) {
             for (Map.Entry<List<String>, List<String>> each2 : mapLeoKeyTakeAway.entrySet()) {
-                if (each1.getKey().equals(each2.getKey())){
-                    Assert.assertEquals(each2.getValue(),each1.getValue());
-                }
-                else{
+                if (each1.getKey().equals(each2.getKey())) {
+                    Assert.assertEquals(each2.getValue(), each1.getValue());
+                } else {
                     Assert.fail();
                 }
             }
@@ -530,10 +534,9 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
         //outlineCheck
         for (Map.Entry<List<String>, List<String>> each1 : mapCRMOutline.entrySet()) {
             for (Map.Entry<List<String>, List<String>> each2 : mapLeoOutline.entrySet()) {
-                if (each1.getKey().equals(each2.getKey())){
-                    Assert.assertEquals(each2.getValue(),each1.getValue());
-                }
-                else{
+                if (each1.getKey().equals(each2.getKey())) {
+                    Assert.assertEquals(each2.getValue(), each1.getValue());
+                } else {
                     Assert.fail();
                 }
             }
