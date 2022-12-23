@@ -25,3 +25,4 @@ Feature: Checked
     Then user checks ınfo overview at CRM with ınfo overview at loe
     Then user checks ınfo keyTakeAway at CRM with ınfo keyTakeAway at loe
     Then user checks ınfo courseOutline at CRM with ınfo courseOutline at loe
+

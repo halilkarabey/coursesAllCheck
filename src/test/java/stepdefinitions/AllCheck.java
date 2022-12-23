@@ -122,7 +122,7 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
         Collections.sort(listPublish);
         System.out.println("Publish Courses amount at crm = " + listPublish.size());
 //Random Number
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 1; i++) {
             int size = random.nextInt(allPage.checked().published.size());
             ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", allPage.checked().published.get(size));
             Thread.sleep(2000);
@@ -141,13 +141,12 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
                     allPage.checked().viewAll.click();
                     Thread.sleep(1000);
                     for (int y = 0; y < allPage.checked().cellValue.size(); y++) {
-
-                                lvtText1.add(allPage.checked().cellValue.get(y).getText());
+                            lvtText1.add(allPage.checked().cellValue.get(y).getText());
                             Thread.sleep(1000);
-                            Driver.getDriver().navigate().back();
-                            wait.until(ExpectedConditions.elementToBeClickable(allPage.checked().viewAll));
-                    }
 
+                    }
+                    Driver.getDriver().navigate().back();
+                    wait.until(ExpectedConditions.elementToBeClickable(allPage.checked().viewAll));
                 } else if (!allPage.checked().viewAll.isDisplayed()&&allPage.checked().sessionLvtPublic.isEnabled()) {
                     listCRMPrice.add(allPage.checked().lvtPrice.getText());
                 } else if (!allPage.checked().viewAll.isDisplayed()&&allPage.checked().sessionPublic.isEnabled()) {
@@ -245,7 +244,7 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
         Collections.sort(listLeo);
         System.out.println("Amount of courses at leo = " + listLeo.size());
 //random Number
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 1; i++) {
             for (int x = 0; x < allPage.checked().leoCourses.size(); x++)
                 if (allPage.checked().leoCourses.get(x).getText().equals(listCrmCourseName.get(i))) {
                     ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", allPage.checked().leoCourses.get(x));
@@ -540,6 +539,6 @@ WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
             }
         }
     }
- 
+
 }
 
