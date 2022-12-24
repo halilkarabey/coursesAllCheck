@@ -122,7 +122,7 @@ public class AllCheck {
         Collections.sort(listPublish);
         System.out.println("Publish Courses amount at crm = " + listPublish.size());
 //Random Number
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 2; i++) {
             int size = random.nextInt(allPage.checked().published.size());
             ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", allPage.checked().published.get(size));
             Thread.sleep(2000);
@@ -246,7 +246,7 @@ public class AllCheck {
         Collections.sort(listLeo);
         System.out.println("Amount of courses at leo = " + listLeo.size());
 //random Number
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 2; i++) {
             for (int x = 0; x < allPage.checked().leoCourses.size(); x++)
                 if (allPage.checked().leoCourses.get(x).getText().equals(listCrmCourseName.get(i))) {
                     ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", allPage.checked().leoCourses.get(x));
